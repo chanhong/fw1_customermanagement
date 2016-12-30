@@ -3,7 +3,7 @@
 	FROM rc.calllog
 	GROUP BY customerId
 </cfquery>
-<style type="text/css"><cfinclude template="/assets/css/general.css"/></style>
+<style type="text/css"><cfinclude template="../../assets/css/general.css"/></style>
 <h5 class="recordcount">Total Records: <cfoutput>#GroupCall.recordCount#</cfoutput></h5>
 <table cellpadding="0" cellspacing="0" border="1" width="100%"	>
 	<tr class="subheader1">

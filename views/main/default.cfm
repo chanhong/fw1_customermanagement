@@ -1,4 +1,4 @@
-<cfimport prefix="ui" taglib="/customtags/" />
+<cfimport prefix="ui" taglib="../../customtags/" />
 <cfset rc.title = "Default View" />	<!--- set a variable to be used in a layout --->
 <cfparam name="session.searchAll" default="" />
 <cfparam name="session.searchLastName" default="" />
@@ -187,7 +187,7 @@
 	</div>
 	<!-- /Modals -->
 </cfoutput>
-<cfmodule template="/customtags/htmlfoot.cfm">
+<cfmodule template="../../customtags/htmlfoot.cfm">
 	<!-- datatables -->
 	<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>

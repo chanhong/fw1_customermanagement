@@ -6,11 +6,12 @@
 *
 */
 
-component output="false" displayname="Application" extends="frameworks.org.corfield.framework" {
+component output="false" displayname="Application"  extends="framework.one" {	
 	this.applicationroot = getDirectoryFromPath( getCurrentTemplatePath() );
 	this.name = "HomeplaceAdmin_" & Hash( this.applicationroot );
 	this.sessionManagement  = true;
 	this.mappings[ "/model" ] = this.applicationroot & "model/";
+	this.mappings[ "/controllers" ] = this.applicationroot & "controllers/";
 	this.customtagpaths = this.applicationroot & "customtags\";
 	this.datasource = "HomePlaceDB";
 	this.ormenabled = false;
@@ -31,11 +32,13 @@ component output="false" displayname="Application" extends="frameworks.org.corfi
 	};
 	*/
 	variables.framework = {
-		SESOmitIndex = true
-		, cacheFileExists = false
-		, trace = false
-		, reloadApplicationOnEveryRequest = this.development
+		SESOmitIndex = true, 
+		cacheFileExists = false, 
+		trace = false, 
+		reloadApplicationOnEveryRequest = this.development,
 	};
+
+	variables.framework.diEngine = "none";
 
 	// ------------------------ PUBLIC METHODS ------------------------ //
 
@@ -46,7 +49,7 @@ component output="false" displayname="Application" extends="frameworks.org.corfi
 		application['EncryptionKey'] = 'j65wGLy7cYGjE4zEJ31gm5KrOW8h2Yzm';
 
 		// setup bean factory
-		var beanfactory = new frameworks.org.corfield.ioc( "/model", { singletonPattern = "(Service|Gateway)$" } );
+        var beanfactory = new framework.ioc( "/model", { singletonPattern = "(Service|Gateway)$" } );
 		setBeanFactory( beanfactory );
 
 		// add config bean to factory
@@ -57,7 +60,6 @@ component output="false" displayname="Application" extends="frameworks.org.corfi
 		beanFactory.addBean( "FormatUtility", new model.utility.FormatUtility() );
 		beanFactory.addBean( "_", new model.utility.Underscore() );
 		*/
-
 	}
 
 
@@ -131,7 +133,7 @@ component output="false" displayname="Application" extends="frameworks.org.corfi
 			}
 			, revision = Hash( Now() )
 			, security = {
-				resetpasswordemailfrom = "homeplaceapp@homeplacefurnace.com"
+				resetpasswordemailfrom = "admin@website.com"
 				, resetpasswordemailsubject = "Password Reset for Homeplace"
 				, whitelist = "^security,main.error" // list of unsecure actions - by default all requests require authentication
 			}
@@ -144,8 +146,6 @@ component output="false" displayname="Application" extends="frameworks.org.corfi
 			config.exceptiontracker.emailnewexceptions = false;
 			config.security.resetpasswordemailfrom = "";
 		}
-
-
 		return config;
 	}
 }

@@ -17,7 +17,7 @@
 	#view( "helpers/messages" )#
 	<div class="row-fluid">
 		<div class="page-header"><h4>Call Log Report for #DateFormat(rc.month, "yyyy-mmmm")# having #GroupCall.recordCount# Call records</h4></div>
-		<cfmodule template="/customtags/callreport.cfm" callLog="#rc.calllog#"/>
+		<cfmodule template="../../customtags/callreport.cfm" callLog="#rc.calllog#"/>
 	</div>
 </cfoutput>
 <cfsavecontent variable="headerHTML">

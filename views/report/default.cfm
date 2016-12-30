@@ -1,4 +1,4 @@
-<cfimport prefix="ui" taglib="/customtags/" />
+<cfimport prefix="ui" taglib="../../customtags/" />
 <cfset rc.title = "Report Dashboard" />	<!--- set a variable to be used in a layout --->
 <cfquery name="GroupYear" dbtype="query">
 	SELECT ServiceCallYear
@@ -143,7 +143,7 @@
 		</div>
 	</div>
 </cfoutput>
-<cfmodule template="/customtags/htmlfoot.cfm">
+<cfmodule template="../../customtags/htmlfoot.cfm">
 	<script type="text/javascript" src="/assets/js/excanvas.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.flot.min.js"></script>
 	<script type="text/javascript" src="/assets/js/jquery.flot.canvas.min.js"></script>
@@ -152,6 +152,7 @@
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 
 	<cfset ServiceCallYearList = valueList(rc.chart.callData.ServiceCallYear) />
+
 	<cfset ServiceCallYearMin = listFirst(ServiceCallYearList) />
 	<cfset ServiceCallYearMax = listLast(ServiceCallYearList) />
 	<cfset ServiceCallData = StructNew() />
@@ -169,7 +170,6 @@
 	<cfloop query="rc.chart.callData">
 		<cfset ServiceCallData[rc.chart.callData.ServiceCallYear][Month(rc.chart.callData.ServiceCallMonth)] = rc.chart.callData.calls />
 	</cfloop>
-
 	<script type="text/javascript">
 
 	$(function() {

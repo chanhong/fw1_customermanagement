@@ -12,10 +12,10 @@
 	#view( "helpers/messages" )#
 	<div class="row-fluid">
 		<div class="page-header"><h4>Customers with No Phone Number</h4></div>
-		<cfmodule template="/customtags/callreport.cfm" callLog="#rc.nophone#"/>
+		<cfmodule template="../../customtags/callreport.cfm" callLog="#rc.nophone#"/>
 	</div>
 </cfoutput>
 <cfsavecontent variable="headerHTML">
-	<link rel="stylesheet" type="text/css" href="/assets/css/callReport.css" media="print"/>
+	<link rel="stylesheet" type="text/css" href="../../assets/css/callReport.css" media="print"/>
 </cfsavecontent>
 <cfhtmlhead text="#headerHTML#" />

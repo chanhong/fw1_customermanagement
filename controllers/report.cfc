@@ -1,3 +1,4 @@
+
 component accessors="true" output="false" displayname="Account" extends="controllers.base.Controller" {
 	//DEPENDENCY INJECTION
 	property name="ReportService"

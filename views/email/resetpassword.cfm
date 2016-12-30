@@ -7,7 +7,7 @@
 			<title>Reset Password</title>
 		</head>
 		<body>
-			<p>Hello,</p>
+			<p>Hello, #name#</p>
 			<p>Your new password is &quot;#password#&quot;.</p>
 			<p>Kind regards,</p>
 			<p>#arguments.name#</p>

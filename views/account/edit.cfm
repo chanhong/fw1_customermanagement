@@ -1,4 +1,4 @@
-<cfimport prefix="ui" taglib="/customtags/" />
+<cfimport prefix="ui" taglib="../../customtags/" />
 <cfset rc.title = "Account Edit" />	<!--- set a variable to be used in a layout --->
 <cfoutput>
 	<div class="row-fluid">
@@ -82,7 +82,7 @@
 						</div><!-- /control-group -->
 					</div><!-- /controls-row -->
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary" disabled>Save changes</button>
+						<button type="submit" class="btn btn-primary">Save changes</button>
 						<button type="button" class="btn btn-danger pull-right delete" data-customerid="#rc.account.info.customerid#">Delete Account</button>
 					</div>
 				</fieldset>
@@ -240,19 +240,19 @@
 	</div>
 	<!-- /Modals -->
 </cfoutput>
-<cfmodule template="/customtags/htmlfoot.cfm">
+<cfmodule template="../../customtags/htmlfoot.cfm">
 	<!-- datatables -->
 	<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.min.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap.datatable.js"></script>
-	<script type="text/javascript" src="/assets/js/jquery.validate.bootstrap.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap.datepicker.js"></script>
-	<script type="text/javascript" src="/assets/js/jquery.maskedinput.min.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap-modalmanager.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap-modal.js"></script>
-	<script type="text/javascript" src="/assets/js/bootbox.min.js"></script>
-	<script type="text/javascript" src="/assets/js/jquery.autoNumeric.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.datatable.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.validate.bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.datepicker.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-modalmanager.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap-modal.js"></script>
+	<script type="text/javascript" src="assets/js/bootbox.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.autoNumeric.js"></script>
 
 	<script type="text/javascript">
 

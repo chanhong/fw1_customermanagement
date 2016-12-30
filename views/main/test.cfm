@@ -171,7 +171,7 @@
             <tbody>
             </tbody>
         </table>
-<cfmodule template="/customtags/htmlfoot.cfm">
+<cfmodule template="../../customtags/htmlfoot.cfm">
         <script type="text/javascript">
             $(document).ready(function($) {
                 // URL for REST http request

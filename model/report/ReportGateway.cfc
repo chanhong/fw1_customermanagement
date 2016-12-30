@@ -50,7 +50,8 @@ component output="false" displayname="Report Gateway" extends="model.base.Gatewa
 		local.getNoService.query2 = new Query();
 		local.getNoService.query1.setSQL("SELECT SQL_CALC_FOUND_ROWS c1.customerId, c1.firstName, c1.lastName, MAX(s2.dateOfService) AS dateOfService FROM customer as c1 LEFT JOIN service as s1 on c1.customerId = s1.customerId AND technician like '%Service Call%' AND STR_TO_DATE(CONCAT(month(s1.dateOfService), '/01/', year(s1.dateOfService)), '%m/%d/%Y') >= :dateOfService LEFT JOIN service AS s2 on c1.customerId = s2.customerId AND s2.technician not like '%Service Call%' WHERE s1.serviceId IS NULL GROUP BY c1.customerId, c1.firstName, c1.lastName ORDER BY lastName, firstName, dateOfService LIMIT 5;"); //set query
 		local.getNoService.query2.setSQL("SELECT FOUND_ROWS() AS Total");
-		local.getNoService.query1.addParam(name="dateOfService",value=now(),CFSQLTYPE="CF_SQL_DATETIME"); // add query param
+//		local.getNoService.query1.addParam(name="dateOfService",value=now(),CFSQLTYPE="CF_SQL_DATETIME"); // add query param
+		local.getNoService.query1.addParam(name="dateOfService",value=now(),CFSQLTYPE="cf_sql_timestamp"); // add query param
 		transaction {
 			local.getNoService.query1 = local.getNoService.query1.execute().getResult();
 			local.getNoService.query2 = local.getNoService.query2.execute().getResult();
