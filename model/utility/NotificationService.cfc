@@ -4,7 +4,7 @@ component accessors="true"{
 	 * I send an email
 	 */
 	void function send( required string subject, required string to, required string from, required string body, string type="html", numeric port=587 ){
-		/*
+
 		var Email = new mail();
 		Email.setServer("smtp.gmail.com");
 		Email.setPort(arguments.port);
@@ -17,23 +17,17 @@ component accessors="true"{
 		Email.setBody( arguments.body );
 		Email.setType( arguments.type );
 		Email.send();
-*/
-savecontent variable="mailBody" {
-  writeOutput(arguments.body );
-};
+	}
 
-// Create and populate the mail object
-mailService = new mail(
-  to = arguments.from,
-  from = arguments.to,
-  subject = arguments.subject,
-	type = arguments.type, 
-  body = mailBody
-);
+	void function sendLocal( required string subject, required string to, required string from, required string body, string type="html"){
 
-// Send
-mailService.send();
-
+		var Email = new mail();
+		Email.setSubject( arguments.subject );
+		Email.setTo( arguments.to );
+		Email.setFrom( arguments.from );
+		Email.setBody( arguments.body );
+		Email.setType( arguments.type );
+		Email.send();
 	}
 
 }

@@ -136,13 +136,15 @@
 				var result = validate( theObject=User, context="password" );
 				User = variables.UserGateway.getUserByEmailOrUsername( User );
 				if( User.isPersisted() ){
+					var username = User.getName();
 					var password = variables.UserService.newPassword();
 					var passwordHashed = variables.UserService.hashPassword(password);
 					User.setPassword( passwordHashed.hash );
 					User.setPasswordSalt( passwordHashed.Salt );
 					savecontent variable="emailtemplate"{ include arguments.emailtemplatepath; }
 					variables.UserGateway.saveUser( User );
-					variables.NotificationService.send( arguments.config.resetpasswordemailsubject, User.getEmailAddress(), arguments.config.resetpasswordemailfrom, emailtemplate );
+//					variables.NotificationService.send( arguments.config.resetpasswordemailsubject, User.getEmailAddress(), arguments.config.resetpasswordemailfrom, emailtemplate );
+					variables.NotificationService.sendLocal( arguments.config.resetpasswordemailsubject, User.getEmailAddress(), arguments.config.resetpasswordemailfrom, emailtemplate );
 					result["type"] = 'success';
 					result["message"] = "A new password has been sent to #User.getEmailAddress()#.";
 					result["password"] = password;

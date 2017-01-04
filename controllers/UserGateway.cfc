@@ -1,5 +1,4 @@
 <cfcomponent accessors="true" extends="model.base.Gateway">
-
 	<cfscript>
 		// ------------------------ PUBLIC METHODS ------------------------ //
 

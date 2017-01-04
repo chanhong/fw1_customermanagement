@@ -8,7 +8,7 @@
 
 component output="false" displayname="Application"  extends="framework.one" {	
 	this.applicationroot = getDirectoryFromPath( getCurrentTemplatePath() );
-	this.name = "HomeplaceAdmin_" & Hash( this.applicationroot );
+	this.name = "HomeplaceAdmin_" & CGI.SERVER_NAME & "_" & Hash( this.applicationroot );
 	this.sessionManagement  = true;
 	this.mappings[ "/model" ] = this.applicationroot & "model/";
 	this.mappings[ "/controllers" ] = this.applicationroot & "controllers/";
@@ -16,7 +16,10 @@ component output="false" displayname="Application"  extends="framework.one" {
 	this.datasource = "HomePlaceDB";
 	this.ormenabled = false;
 	// note: IsLocalHost on CF returns YES|NO which can't be passed to hibernate
-	this.development = IsLocalHost(CGI.REMOTE_ADDR) ? true : false;
+//	this.development = IsLocalHost(CGI.REMOTE_ADDR) ? true : false;
+	this.development = IsLocalHost(CGI.SERVER_ADDR) ? true : false;
+	// comment out this line before production
+	this.development = true;
 	/*
 	this.ormsettings = {
 		flushatrequestend = false
@@ -35,7 +38,7 @@ component output="false" displayname="Application"  extends="framework.one" {
 		SESOmitIndex = true, 
 		cacheFileExists = false, 
 		trace = false, 
-		reloadApplicationOnEveryRequest = this.development,
+		reloadApplicationOnEveryRequest = this.development
 	};
 
 	variables.framework.diEngine = "none";
@@ -54,6 +57,7 @@ component output="false" displayname="Application"  extends="framework.one" {
 
 		// add config bean to factory
 		beanFactory.addBean( "config", getConfiguration() );
+		
 		/*
 		beanFactory.addBean( "JSONUtility", new model.utility.JSONUtility() );
 		beanFactory.addBean( "GeoCodingUtility", new model.utility.GeoCodingUtility() );

@@ -144,8 +144,8 @@ component accessors="true" displayname="Main" extends="controllers.base.Controll
 		melissaData.urlRest = melissaData.urlRest & "&state=" & arguments.rc.state;
 		melissaData.urlRest = melissaData.urlRest & "&zip=" & arguments.rc.zip;
 
-
-		http method="GET" url=melissaData.urlRest result="webPage";
+// ? not a function, CF does not like this
+//		http method="GET" url=melissaData.urlRest result="webPage";
 
 		if(webPage.status_code eq 200){
 			propertySearchXML = webPage.filecontent;
@@ -162,7 +162,8 @@ component accessors="true" displayname="Main" extends="controllers.base.Controll
 			melissaData.urlRest = melissaData.urlRest & "&opt=" & arguments.rc.opt;
 			melissaData.urlRest = melissaData.urlRest & "&AddressKey=" & local.response.AddressKey;
 
-			http method="GET" url=melissaData.urlRest result="webPage";
+// ? not a function, CF does not like this
+//			http method="GET" url=melissaData.urlRest result="webPage";
 
 			if(webPage.status_code eq 200){
 				propertySearchXML = webPage.filecontent;

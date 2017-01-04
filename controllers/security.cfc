@@ -1,4 +1,4 @@
-<cfcomponent accessors="true" extends="controllers.base.Controller" >
+<cfcomponent accessors="true" extends="controllers.base.Controller">
     <!------------------------- DEPENDENCY INJECTION ------------------------>
     <cfproperty name="UserService" setter="true" getter="false" />
     <cfproperty name="config" setter="true" getter="false" />
