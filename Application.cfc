@@ -6,7 +6,8 @@
 *
 */
 
-component output="false" displayname="Application"  extends="framework.one" {	
+// /. to use the framework of FW1 from the current location of this application not at the server local folder of the framework
+component output="false" displayname="Application"  extends="/.framework.one" {	
 	this.applicationroot = getDirectoryFromPath( getCurrentTemplatePath() );
 	this.name = "HomeplaceAdmin_" & CGI.SERVER_NAME & "_" & Hash( this.applicationroot );
 	this.sessionManagement  = true;
